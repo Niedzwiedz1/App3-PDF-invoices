@@ -1,8 +1,12 @@
 import pandas as pd
+import glob
 import fpdf
 
-df = pd.read_excel('10001-2023.1.18.xlsx', index_col=0)
+filepaths = glob.glob("invoices/*.xlsx")
 
-print(df)
+for filepath in filepaths:
+    df = pd.read_excel(filepath, sheet_name="Sheet 1")
+    print(df)
+
 
 
